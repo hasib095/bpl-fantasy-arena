@@ -1,2 +1,147 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+:root {
+	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+	color: #17251d;
+	background: #f5f7f2;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	background:
+		radial-gradient(circle at 8% 12%, rgba(216, 239, 167, 0.28), transparent 25rem),
+		#f5f7f2;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+.site-shell {
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.site-nav {
+	background: #10291d;
+	color: #f7f8ed;
+}
+
+.nav-link {
+	color: rgba(247, 248, 237, 0.68);
+	transition: color 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+	color: #d9f37d;
+}
+
+.hero-panel {
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(112deg, #193f2a 0%, #28613e 52%, #91bd3e 100%);
+}
+
+.hero-panel::after {
+	position: absolute;
+	right: -8rem;
+	bottom: -14rem;
+	width: 34rem;
+	height: 34rem;
+	border: 1px solid rgba(239, 255, 182, 0.25);
+	border-radius: 50%;
+	box-shadow: 0 0 0 3rem rgba(239, 255, 182, 0.05), 0 0 0 7rem rgba(239, 255, 182, 0.04);
+	content: "";
+}
+
+.hero-content {
+	position: relative;
+	z-index: 1;
+}
+
+.eyebrow {
+	color: #d9f37d;
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.section-kicker {
+	color: #5e765f;
+	font-size: 0.7rem;
+	font-weight: 800;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+}
+
+.player-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.25rem;
+}
+
+.player-card {
+	border: 1px solid #e2e8dc;
+	background: #fff;
+	box-shadow: 0 14px 30px rgba(29, 55, 35, 0.07);
+	transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.player-card:hover {
+	border-color: #b6d36e;
+	box-shadow: 0 20px 36px rgba(29, 55, 35, 0.14);
+	transform: translateY(-5px);
+}
+
+.player-photo {
+	background: linear-gradient(145deg, #dcecc0, #527e50);
+}
+
+.player-photo img {
+	transition: transform 500ms ease;
+}
+
+.player-card:hover .player-photo img {
+	transform: scale(1.04);
+}
+
+.stat-tile {
+	background: #f2f6ed;
+	border: 1px solid #e8eee1;
+}
+
+.filter-pill {
+	border: 1px solid #dce6d5;
+	color: #627064;
+	transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.filter-pill:hover,
+.filter-pill.selected {
+	border-color: #1d5836;
+	background: #1d5836;
+	color: #fff;
+}
+
+@media (max-width: 1024px) {
+	.player-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 640px) {
+	.player-grid {
+		grid-template-columns: 1fr;
+	}
+}
