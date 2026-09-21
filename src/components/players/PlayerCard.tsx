@@ -4,7 +4,7 @@ import type { Iplayer } from "../../types/playerType";
 
 interface PlayerCardProps {
   player: Iplayer;
-  onChoose: (player: Iplayer) => void;
+  onChoose?: (player: Iplayer) => void;
 }
 
 const PlayerCard = ({ player, onChoose }: PlayerCardProps) => {
@@ -24,16 +24,16 @@ const PlayerCard = ({ player, onChoose }: PlayerCardProps) => {
           src={player.playerImg}
           alt={player.playerName}
           loading="lazy"
-          className="relative z-[1] h-full w-full "
+          className="relative z-1 h-full w-full "
           onError={(event) => {
             event.currentTarget.style.display = "none";
           }}
         />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-        <span className="absolute right-4 top-4 z-[3] rounded-full bg-lime-200 px-3 py-1.5 text-xs font-black text-green-950">
+        <div className="absolute inset-0 z-2 bg-linear-to-t from-black/80 via-black/10 to-transparent" />
+        <span className="absolute right-4 top-4 z-3 rounded-full bg-lime-200 px-3 py-1.5 text-xs font-black text-green-950">
           {player.playerType}
         </span>
-        <div className="absolute inset-x-4 bottom-4 z-[3] text-white">
+        <div className="absolute inset-x-4 bottom-4 z-3 text-white">
           <h2 className="flex items-center gap-2 text-xl font-black leading-tight">
             <FaUser className="text-sm text-lime-200" /> {player.playerName}
           </h2>
@@ -73,7 +73,7 @@ const PlayerCard = ({ player, onChoose }: PlayerCardProps) => {
           </div>
           <button
             className="rounded-full bg-[#1d5836] px-4 py-3 text-xs font-black text-white transition hover:bg-[#123d25]"
-            onClick={() => onChoose(player)}
+            onClick={() => onChoose?.(player)}
           >
             + Choose
           </button>
